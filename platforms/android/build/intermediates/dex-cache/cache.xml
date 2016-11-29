@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/MacbookPro/Documents/ionic2/inTime/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="618485fef3ebe12127f7622abbc9b5b39057b5c2">
+        <dex dex="/Users/MacbookPro/Documents/ionic2/inTime/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-9.4.0_d725d0825a3e7832eacf2cb3107f3e172665204f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/MacbookPro/Documents/ionic2/inTime/platforms/android/build/intermediates/exploded-aar/android/CordovaLib/unspecified/debug/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="873daaba9b25e7f07376989b900fc46e99a9271c">
+        <dex dex="/Users/MacbookPro/Documents/ionic2/inTime/platforms/android/build/intermediates/pre-dexed/debug/CordovaLib-unspecified-debug_d6e7b2b35fa1fe963aa0039b31c53a16fab51ab8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/MacbookPro/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.0/support-annotations-23.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
+        <dex dex="/Users/MacbookPro/Documents/ionic2/inTime/platforms/android/build/intermediates/pre-dexed/debug/support-annotations-23.0.0_bceb7b0f1d7eebb12e6e401fef8025dc6002d8da.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/MacbookPro/Documents/ionic2/inTime/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/9.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="0b060160e7daee343f5315b3da91b0ff2d7eed89">
+        <dex dex="/Users/MacbookPro/Documents/ionic2/inTime/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-location-9.4.0_0496038aa398a7414c4740315809bf6bbdb34d3e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/MacbookPro/Documents/ionic2/inTime/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="8a36d229011e75f0caef408e1adf0d3fd4d94e02">
+        <dex dex="/Users/MacbookPro/Documents/ionic2/inTime/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-9.4.0_7ff4aac390da46a8e15a9ab1d5b2a89e0cb3865a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/MacbookPro/Documents/ionic2/inTime/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="3dee4ce5844d39d843d503fb8fe04e51e5bfffac">
+        <dex dex="/Users/MacbookPro/Documents/ionic2/inTime/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-9.4.0_35736544b323018d35a4617b50966ca4ed12a3b8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/MacbookPro/Documents/ionic2/inTime/platforms/android/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
+        <dex dex="/Users/MacbookPro/Documents/ionic2/inTime/platforms/android/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.0.0_958fb57404c08ee946d769cd88dae9b2bd6f6982.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/MacbookPro/Documents/ionic2/inTime/platforms/android/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/libs/internal_impl-23.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
+        <dex dex="/Users/MacbookPro/Documents/ionic2/inTime/platforms/android/build/intermediates/pre-dexed/debug/internal_impl-23.0.0_ab26560fbb87d27e37962bc2a2fd38d46555f2dd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/MacbookPro/Documents/ionic2/inTime/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/9.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="e454c414a069241ee08444d187f2dd3a702596b5">
+        <dex dex="/Users/MacbookPro/Documents/ionic2/inTime/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-maps-9.4.0_cab7af100d6e408686f996a1d555074c8926aa75.jar" />
+    </item>
+
+</items>

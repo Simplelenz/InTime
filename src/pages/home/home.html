@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-navbar color = "secondary">
+    <ion-title align = "center">
+      In Time
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="findTransit()"><ion-icon name="add"></ion-icon>Nearby Train Stations</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div #map id = "map"></div>
+</ion-content>
