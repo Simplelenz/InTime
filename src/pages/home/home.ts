@@ -32,7 +32,7 @@ export class HomePage {
       let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
       
       this.currentLocation = latLng;
-      console.log(this.currentLocation);
+      // console.log(this.currentLocation);
 
       let mapOptions = {
         center: latLng,
@@ -42,7 +42,7 @@ export class HomePage {
  
       this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
 
-      // this.addMarker();
+      this.addMarker();
       this.findTransit();
  
     }, (err) => {
@@ -58,7 +58,7 @@ export class HomePage {
     position: this.currentLocation
   });
  
-  let content = "<h4>Information!</h4>";          
+  let content = "<h4>I'm Here!</h4>" + "<button>Ok</button>";          
  
   this.addInfoWindow(marker, content);
 
@@ -72,9 +72,10 @@ addInfoWindow(marker, content){
     content: content
   });
  
-  google.maps.event.addListener(marker, 'click', () => {
-    infoWindow.open(this.map, marker);
-  });
+  // google.maps.event.addListener(marker, 'click', () => {
+  //   infoWindow.open(this.map, marker);
+  // });
+  infoWindow.open(this.map, marker);
  
 }
 
@@ -99,13 +100,14 @@ findTransit(){
         // If the request succeeds, draw the place location on
         // the map as a marker, and register an event to handle a
         // click on the marker.
-        // var marker = new google.maps.Marker({
-        //   map: this.map,
-        //   icon: 'http://maps.google.com/mapfiles/kml/shapes/rail.png',
-        //   position: this.trainStations.geometry.location
-        // });
+        var marker = new google.maps.Marker({
+          map: this.map,
+          icon: 'http://maps.google.com/mapfiles/kml/shapes/rail.png',
+          position: this.trainStations.geometry.location
+        });
         this.station = this.station.name;
         this.displayRoute();
+        this.addInfoWindow(marker, "<h4>Train Info</h4>");
         // this.station = 'Kompannavidiya Railway Station';
         // console.log(this.station)
       }
@@ -116,15 +118,22 @@ findTransit(){
 
 displayRoute(){
 
+  var rendererOptions = {
+  map: this.map,
+  suppressMarkers : true
+}
+
   var directionsService = new google.maps.DirectionsService;
-  var directionsDisplay = new google.maps.DirectionsRenderer;
+  var directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
         
-  directionsDisplay.setMap(this.map);
+  // directionsDisplay.setMap(this.map);
+  
 
   directionsService.route({
           origin: this.currentLocation,
           destination: this.station,
-          travelMode: 'DRIVING'
+          travelMode: 'DRIVING',
+          provideRouteAlternatives: true
         }, (response, status) => {
           if (status === 'OK') {
             directionsDisplay.setDirections(response);
