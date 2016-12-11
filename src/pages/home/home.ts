@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Geolocation } from 'ionic-native';
+import { TrainInfoPage } from '../train-info/train-info';
  
 declare var google;
  
@@ -58,23 +59,26 @@ export class HomePage {
     position: this.currentLocation
   });
  
-  let content = "<h4>I'm Here!</h4>" + "<button>Ok</button>";          
+  // let content = "<h4>I'm Here!</h4>" + "<button onClick='myfunc()'>Ok</button>";          
  
-  this.addInfoWindow(marker, content);
+  // this.addInfoWindow(marker, content);
 
   // this.displayRoute();
  
 }
-
+myfunc(){
+  console.log("button clicked");
+}
 addInfoWindow(marker, content){
  
   let infoWindow = new google.maps.InfoWindow({
     content: content
   });
  
-  // google.maps.event.addListener(marker, 'click', () => {
-  //   infoWindow.open(this.map, marker);
-  // });
+  google.maps.event.addListener(marker, 'click', () => {
+    // infoWindow.open(this.map, marker);
+    this.navCtrl.push(TrainInfoPage);
+  });
   infoWindow.open(this.map, marker);
  
 }
