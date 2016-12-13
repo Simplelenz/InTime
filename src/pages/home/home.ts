@@ -2,6 +2,8 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Geolocation } from 'ionic-native';
 import { TrainInfoPage } from '../train-info/train-info';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
  
 declare var google;
  
@@ -13,17 +15,35 @@ export class HomePage {
  
   @ViewChild('map') mapElement: ElementRef;
   map: any;
+  posts: any
+  data: any
+
   public currentLocation;
   public trainStations;
   public station;
  
-  constructor(public navCtrl: NavController) {
-    
+  constructor(public navCtrl: NavController, public http: Http) {
+        this.data = {};
+        this.data.trainStationLat = '';
+        this.data.trainStationLong = '';
+ 
+        this.http = http;
   }
  
   ionViewDidLoad(){
     this.loadMap();
-    
+    // this.getDataFromServer();
+    setInterval(this.getDataFromServer(), 10000);
+    // let counter = 10;
+    // while(counter > 0){
+    //   counter--;
+    //   if (counter <= 0){
+    //     counter = 10;
+    //     // this.getDataFromServer();
+    //   }
+    // }
+    // if (counter == 10)
+    //   this.getDataFromServer();
   }
  
    loadMap(){
@@ -66,9 +86,7 @@ export class HomePage {
   // this.displayRoute();
  
 }
-myfunc(){
-  console.log("button clicked");
-}
+
 addInfoWindow(marker, content){
  
   let infoWindow = new google.maps.InfoWindow({
@@ -109,9 +127,18 @@ findTransit(){
           icon: 'http://maps.google.com/mapfiles/kml/shapes/rail.png',
           position: this.trainStations.geometry.location
         });
+        this.data.trainStationLat = this.station.geometry.location.lat();
+        this.data.trainStationLong = this.station.geometry.location.lng();
         this.station = this.station.name;
+        
         this.displayRoute();
-        this.addInfoWindow(marker, "<h4>Train Info</h4>");
+        let timeToReach = String(this.posts.timeToReach);
+        let content = "<h4>Train to come</h4>"+ "Train Name: Ruhunu Kumari"+
+        "<br>Destination: Matara"+
+        // "<br>Distance: " +this.posts.distance+ " Km"+
+        "<br><b>Time to Reach here: </b>"+timeToReach.bold().fontcolor("green")
+        .fontsize(6)+ "<b> Hrs</b>";
+        this.addInfoWindow(marker, content);
         // this.station = 'Kompannavidiya Railway Station';
         // console.log(this.station)
       }
@@ -146,4 +173,28 @@ displayRoute(){
           }
         });
 }
+
+getDataFromServer(){
+  this.http.get('http://emebedintime.comxa.com/getTrainInfo.php')
+  .map(res => res.json())
+  .subscribe(data => {
+        console.log(data);
+        this.posts = data;
+        // console.log(this.posts);
+    });
+}
+
+// sendStationLocToServer() {
+//         var link = 'http://nikola-breznjak.com/_testings/ionicPHP/api.php';
+//         var data = JSON.stringify({trainStationLat: this.data.trainStationLat,
+//           trainStationLong: this.data.trainStationLat});
+        
+//         this.http.post(link, data)
+//         .subscribe(data => {
+//          this.data.response = data._body;
+//         }, error => {
+//             console.log("Oooops!");
+//         });
+//   }
+
 }
