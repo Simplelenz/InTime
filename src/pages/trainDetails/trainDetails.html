@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar color = "secondary">
+    <ion-title align = "left">
+      {{ item.OriginName }} &nbsp; to &nbsp;{{ item.DestinationName }} Train Details
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<!--<ion-icon [name]="'logo-' + item.icon" [ngStyle]="{'color': item.color}"></ion-icon>-->
+
+<ion-grid>
+
+  <ion-row>
+     <ion-col width-50>Name</ion-col>
+      <ion-col width-50> {{ item.Name }}</ion-col>
+   </ion-row>
+
+    <ion-row>
+     <ion-col width-50>Route</ion-col>
+      <ion-col width-50> {{item.OriginName}}&nbsp;&nbsp;<ion-icon name="arrow-dropright"></ion-icon>&nbsp;&nbsp;{{ item.DestinationName }}</ion-col>
+   </ion-row>
+
+   <ion-row>
+     <ion-col width-50>Arrival Time</ion-col>
+      <ion-col width-50> {{ item.ArrivalTime }}</ion-col>
+   </ion-row>
+
+    <ion-row>
+     <ion-col width-50>Departure Time</ion-col>
+      <ion-col width-50> {{ item.DepartureTime }}</ion-col>
+   </ion-row>
+
+  
+    <ion-row>
+     <ion-col width-50>Destination Time</ion-col>
+      <ion-col width-50> {{ item.DestinationTime }}</ion-col>
+   </ion-row>
+
+    <ion-row>
+     <ion-col width-50>Available classes</ion-col>  
+   </ion-row>
+
+ <ion-row>
+     <ion-col width-50>Ticket prices</ion-col>  
+   </ion-row>
+
+</ion-grid>
+  
+ 
+</ion-content>
