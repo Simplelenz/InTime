@@ -6,13 +6,62 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>trainInfo</ion-title>
+  <ion-navbar color = "secondary">
+    <ion-title align = "left">Train Info</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding-right padding-bottom>
+  
+  <ion-searchbar color = "secondary" placeholder="Search by Destination" (ionInput)="getItems($event)"></ion-searchbar>
+ <ion-grid>
+  <ion-row>
+     <ion-col width-25><ion-label stacked >Origin Station</ion-label></ion-col>
+     <ion-col width-25><ion-label stacked >Destination Station</ion-label></ion-col>
+     <ion-col width-25><ion-label stacked >Name</ion-label></ion-col>
+     <ion-col width-25><ion-label stacked >Will Arrive By</ion-label></ion-col>
+   
+  </ion-row>
+  <ion-list  align = "left">
+    <button ion-item *ngFor="let item of items" (click)="presentAlert(item)" icon-left>
+     <!-- <ion-icon [name]="'logo-' + item.icon" [ngStyle]="{'color': item.color}" item-left></ion-icon>-->
+  
+   <ion-row>
+     <ion-col width-25> {{ item.OriginName }} &nbsp;<ion-icon name="arrow-dropright" color="primary"></ion-icon></ion-col>
+     <ion-col width-25> &nbsp;{{ item.DestinationName}}</ion-col>
+     <ion-col width-25> {{ item.Name }}</ion-col>
+     <ion-col width-25> {{ item.ArrivalTime }}&nbsp;&nbsp;<ion-icon color="primary" ios="ios-arrow-dropright-circle" md="md-arrow-dropright-circle"></ion-icon></ion-col>
+  
+   </ion-row>
+  
+
+  
+    </button>
+</ion-list>
+</ion-grid>
+ <!-- 
+  <ion-grid>
+
+  <ion-row>
+    
+  </ion-row>
+
+  <ion-row>
+    <ion-col width-10>This column will take 10% of space</ion-col>
+  </ion-row>
+
+</ion-grid>
+
+  <ion-list>
+    <ion-item *ngFor="let item of items">
+      {{ item }}
+    </ion-item>
+  </ion-list>
+-->
 
 </ion-content>
+
+
+
