@@ -1,6 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { Geolocation } from 'ionic-native';
+import { Geolocation, PositionError, Geoposition } from 'ionic-native';
 import { TrainInfoPage } from '../train-info/train-info';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -21,6 +21,7 @@ export class HomePage {
   public currentLocation;
   public trainStations;
   public station;
+  public infoWindow;
  
   constructor(public navCtrl: NavController, public http: Http) {
         this.data = {};
@@ -29,26 +30,35 @@ export class HomePage {
  
         this.http = http;
   }
- 
-  ionViewDidLoad(){
-    this.loadMap();
-    // this.getDataFromServer();
-    setInterval(this.getDataFromServer(), 10000);
-    // let counter = 10;
-    // while(counter > 0){
-    //   counter--;
-    //   if (counter <= 0){
-    //     counter = 10;
-    //     // this.getDataFromServer();
-    //   }
-    // }
-    // if (counter == 10)
-    //   this.getDataFromServer();
+
+  doRefresh(refresher) {
+    
+    console.log('Begin async operation', refresher);
+    this.infoWindow.close();
+    this.findTransit();
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
   }
- 
+
+
+  ionViewDidLoad(){
+    setInterval(this.ionViewDidEnter(),1000);
+    // setInterval(this.loadMap(),1000);
+    // // // this.getDataFromServer();
+    // setInterval(this.getDataFromServer(), 10000);
+  }
+  ionViewDidEnter(){
+    this.loadMap();
+    this.getDataFromServer();
+  }
    loadMap(){
- 
-    Geolocation.getCurrentPosition().then((position) => {
+    
+    console.log("map loaded");
+
+    Geolocation.watchPosition().subscribe((position: Geoposition) => {
  
       let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
       
@@ -84,26 +94,26 @@ export class HomePage {
   // this.addInfoWindow(marker, content);
 
   // this.displayRoute();
- 
+console.log("map loaded");
 }
 
 addInfoWindow(marker, content){
  
-  let infoWindow = new google.maps.InfoWindow({
+    this.infoWindow = new google.maps.InfoWindow({
     content: content
+    
   });
  
   google.maps.event.addListener(marker, 'click', () => {
     // infoWindow.open(this.map, marker);
     this.navCtrl.push(TrainInfoPage);
   });
-  infoWindow.open(this.map, marker);
+  this.infoWindow.open(this.map, marker);
  
 }
 
 findTransit(){
   // let map = this.map;
-
   var request = {
     location: this.currentLocation,
     radius: '5000',
@@ -133,6 +143,16 @@ findTransit(){
         
         this.displayRoute();
         let timeToReach = String(this.posts.timeToReach);
+
+        // let content = document.createElement('div');
+        // let div = document.createElement('div');
+        // div.id = "test";
+        // content.appendChild(div);
+        // let h2 = document.createElement('h2');
+        // h2.id = "h2";
+        // h2.innerHTML = Date();
+        // div.appendChild(h2);
+        // document.getElementById("h2").innerHTML = "hello";
         let content = "<h4>Train to come</h4>"+ "Train Name: Ruhunu Kumari"+
         "<br>Destination: Matara"+
         // "<br>Distance: " +this.posts.distance+ " Km"+

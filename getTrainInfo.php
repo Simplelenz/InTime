@@ -19,7 +19,7 @@
     {
         $train1[] = $row;
         $trainLat = $row['lat'];
-        $trainLong = $row['long'];
+        $trainLong = $row['lon'];
         $trainSpeed = $row['speed'];
     }
     // echo $trainLat;
@@ -36,8 +36,8 @@
     // $trainStationLong = $result->trainStationLong;
     // }
 
-    $trainStationLat = 3.4313;
-    $trainStationLong = 4.342;
+    $trainStationLat = 6.8622284;
+    $trainStationLong = 79.908797;
 
     function distance($lat1, $lon1, $lat2, $lon2, $unit) {
 

@@ -21757,3 +21757,11 @@ sub {
   width: 100%;
   height: 100%;
 }
+
+.ios page-train-Info .scroll-content, .md page-train-Info .scroll-content {
+  height: 100%;
+}
+
+.ios page-trainDetails .scroll-content, .md page-trainDetails .scroll-content {
+  height: 100%;
+}
